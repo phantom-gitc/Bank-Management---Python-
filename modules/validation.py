@@ -1,6 +1,7 @@
 import datetime
 
 
+# checks that the name is not empty and within 32 characters
 def validate_name(name):
     clean_name = name.strip()
     if len(clean_name) == 0:
@@ -10,6 +11,7 @@ def validate_name(name):
     return True, ""
 
 
+# checks that DOB is in DD/MM/YYYY format and not in the future
 def validate_dob(dob_str):
     dob_str = dob_str.strip()
     try:
@@ -24,6 +26,7 @@ def validate_dob(dob_str):
     return True, ""
 
 
+# checks that phone number has 10 digits and is not already registered
 def validate_phone(phone, customers, current_acc=None):
     phone = phone.strip()
     if len(phone) != 10 or not phone.isdigit():
@@ -38,6 +41,7 @@ def validate_phone(phone, customers, current_acc=None):
     return True, ""
 
 
+# checks that Aadhaar is 12 digits and unique
 def validate_aadhaar(aadhaar, customers):
     aadhaar = aadhaar.strip()
     if len(aadhaar) != 12 or not aadhaar.isdigit():
@@ -50,12 +54,12 @@ def validate_aadhaar(aadhaar, customers):
     return True, ""
 
 
+# checks standard Indian PAN format (5 letters, 4 numbers, 1 letter) and uniqueness
 def validate_pan(pan, customers):
     pan = pan.strip().upper()
     if len(pan) != 10:
         return False, "PAN must be 10 characters long (e.g. ABCDE1234F)."
 
-    # 5 letters, 4 numbers, 1 letter
     first_part = pan[:5]
     middle_part = pan[5:9]
     last_char = pan[9]
@@ -70,12 +74,14 @@ def validate_pan(pan, customers):
     return True, ""
 
 
+# checks that address is not blank
 def validate_address(address):
     if len(address.strip()) == 0:
         return False, "Address cannot be empty."
     return True, ""
 
 
+# checks basic email format with username, @, domain and uniqueness
 def validate_email(email, customers, current_acc=None):
     email = email.strip()
     if "@" not in email:
@@ -101,6 +107,7 @@ def validate_email(email, customers, current_acc=None):
     return True, ""
 
 
+# checks that deposit or withdrawal amount is a positive number with max 2 decimals
 def validate_amount(amount_str):
     amount_str = amount_str.strip()
     if not amount_str:

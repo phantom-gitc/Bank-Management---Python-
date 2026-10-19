@@ -17,6 +17,7 @@ from modules.validation import (
 )
 
 
+# looks up a customer by their account number
 def find_customer(customers, acc_no):
     acc_no = acc_no.strip()
     for c in customers:
@@ -25,6 +26,7 @@ def find_customer(customers, acc_no):
     return None
 
 
+# generates a unique 10-digit random account number
 def generate_acc_no(customers):
     existing = []
     for c in customers:
@@ -36,6 +38,7 @@ def generate_acc_no(customers):
             return num
 
 
+# generates a unique transaction id like TXN123456
 def generate_txn_id(transactions):
     existing = []
     for t in transactions:
@@ -47,6 +50,7 @@ def generate_txn_id(transactions):
             return txn_id
 
 
+# takes all inputs, validates them, and creates a new account with 0 balance
 def create_account(customers):
     print("\n--- CREATE CUSTOMER ACCOUNT ---")
 
@@ -141,6 +145,7 @@ def create_account(customers):
     print("Initial Balance: Rs. 0.00")
 
 
+# deposits money into an active account and records the transaction
 def deposit_money(customers, transactions):
     print("\n--- DEPOSIT MONEY ---")
     acc_no = input("Enter Account Number: ").strip()
@@ -188,6 +193,7 @@ def deposit_money(customers, transactions):
     print(f"New Balance: Rs. {new_bal:.2f}")
 
 
+# withdraws money if balance is sufficient and records the transaction
 def withdraw_money(customers, transactions):
     print("\n--- WITHDRAW MONEY ---")
     acc_no = input("Enter Account Number: ").strip()
@@ -239,6 +245,7 @@ def withdraw_money(customers, transactions):
     print(f"Remaining Balance: Rs. {new_bal:.2f}")
 
 
+# shows current balance and status without modifying any data
 def balance_enquiry(customers):
     print("\n--- BALANCE ENQUIRY ---")
     acc_no = input("Enter Account Number: ").strip()

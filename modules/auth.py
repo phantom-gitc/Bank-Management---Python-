@@ -2,6 +2,7 @@ import sys
 from modules.storage import ADMIN_FILE, load_data
 
 
+# asks for admin username and password with a maximum of 3 attempts
 def admin_login():
     data = load_data(ADMIN_FILE)
     correct_user = data.get("username", "admin")

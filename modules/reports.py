@@ -1,6 +1,7 @@
 from modules.customer import view_all_customers
 
 
+# prints a formatted table of transaction records
 def print_transactions(txns):
     if not txns:
         print("No transactions found.")
@@ -15,6 +16,7 @@ def print_transactions(txns):
     print("-" * 90)
 
 
+# submenu to view transactions by account or all newest first
 def transaction_history(transactions):
     while True:
         print("\n--- TRANSACTION HISTORY ---")
@@ -44,6 +46,7 @@ def transaction_history(transactions):
             print("Invalid choice, choose 1, 2, or 3.")
 
 
+# submenu for viewing customer stats and financial totals
 def show_reports(customers, transactions):
     while True:
         print("\n--- REPORTS MENU ---")

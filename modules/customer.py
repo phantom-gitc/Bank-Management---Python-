@@ -8,6 +8,7 @@ from modules.validation import (
 )
 
 
+# prints a simple table of all customers without sensitive details
 def view_all_customers(customers):
     if not customers:
         print("No customers found.")
@@ -27,6 +28,7 @@ def view_all_customers(customers):
     print("-" * 75)
 
 
+# searches for a single customer using their account number
 def search_by_acc_no(customers):
     acc_no = input("Enter Account Number: ").strip()
     cust = find_customer(customers, acc_no)
@@ -43,6 +45,7 @@ def search_by_acc_no(customers):
     print(f"Status        : {cust['status']}")
 
 
+# finds customers whose name contains the search text
 def search_by_name(customers):
     query = input("Enter Name to search: ").strip().lower()
     if not query:
@@ -62,6 +65,7 @@ def search_by_name(customers):
     view_all_customers(found)
 
 
+# updates editable fields and keeps old values if enter is pressed
 def update_customer_details(customers):
     print("\n--- UPDATE CUSTOMER DETAILS ---")
     acc_no = input("Enter Account Number: ").strip()
@@ -122,6 +126,7 @@ def update_customer_details(customers):
     print("Customer details updated successfully.")
 
 
+# changes an account status between active and inactive
 def toggle_account_status(customers):
     print("\n--- ACTIVATE / DEACTIVATE ACCOUNT ---")
     acc_no = input("Enter Account Number: ").strip()
@@ -147,6 +152,7 @@ def toggle_account_status(customers):
             print("Account is now Active.")
 
 
+# shows all profile fields including aadhaar and pan for an account
 def view_account_details(customers):
     print("\n--- VIEW FULL ACCOUNT DETAILS ---")
     acc_no = input("Enter Account Number: ").strip()
@@ -170,6 +176,7 @@ def view_account_details(customers):
     print(f"Created At     : {cust['created_at']}")
 
 
+# submenu loop for all customer management options
 def customer_management(customers):
     while True:
         print("\n--- CUSTOMER MANAGEMENT ---")

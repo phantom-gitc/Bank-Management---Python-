@@ -16,6 +16,7 @@ from modules.customer import customer_management, view_account_details
 from modules.reports import transaction_history, show_reports
 
 
+# displays the main dashboard menu and handles user selection
 def show_dashboard():
     customers = load_data(CUSTOMERS_FILE)
     transactions = load_data(TRANSACTIONS_FILE)
@@ -64,6 +65,7 @@ def show_dashboard():
             print("Invalid choice! Enter a number between 0 and 9.")
 
 
+# runs setup, handles admin login, and keeps the program running
 def main():
     initialize_files()
 
